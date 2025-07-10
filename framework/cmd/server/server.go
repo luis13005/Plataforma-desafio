@@ -27,7 +27,7 @@ func main() {
 	flag.Parse()
 	log.Printf("Server started on port: %v", *port)
 
-	userServer := setUpUserServer()
+	userServer := setUpUserServer(db)
 
 	grpcServer := grpc.NewServer()
 	pb.RegisterUserServiceServer(grpcServer, userServer)
@@ -42,10 +42,9 @@ func main() {
 	if err != nil {
 		log.Fatal("Error starting server: ", err)
 	}
-
 }
 
-func setUpUserServer() *server.UserServer {
+func setUpUserServer(db *gorm.DB) *server.UserServer {
 	userRepository := repositories.UserRepositoryDb{DB: db}
 	userServer := server.NewUserServer()
 	userServer.UserUseCase = usecases.UserUseCase{UserRepository: userRepository}

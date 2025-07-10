@@ -81,6 +81,90 @@ func (x *UserRequest) GetPassword() string {
 	return ""
 }
 
+type UpdateUserRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	OldPassword   string                 `protobuf:"bytes,4,opt,name=old_password,json=oldPassword,proto3" json:"old_password,omitempty"`
+	NewPassword   string                 `protobuf:"bytes,5,opt,name=new_password,json=newPassword,proto3" json:"new_password,omitempty"`
+	Token         string                 `protobuf:"bytes,6,opt,name=token,proto3" json:"token,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateUserRequest) Reset() {
+	*x = UpdateUserRequest{}
+	mi := &file_user_message_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateUserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateUserRequest) ProtoMessage() {}
+
+func (x *UpdateUserRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_message_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateUserRequest.ProtoReflect.Descriptor instead.
+func (*UpdateUserRequest) Descriptor() ([]byte, []int) {
+	return file_user_message_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *UpdateUserRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetOldPassword() string {
+	if x != nil {
+		return x.OldPassword
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetNewPassword() string {
+	if x != nil {
+		return x.NewPassword
+	}
+	return ""
+}
+
+func (x *UpdateUserRequest) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
 type UserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
@@ -90,7 +174,7 @@ type UserResponse struct {
 
 func (x *UserResponse) Reset() {
 	*x = UserResponse{}
-	mi := &file_user_message_proto_msgTypes[1]
+	mi := &file_user_message_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -102,7 +186,7 @@ func (x *UserResponse) String() string {
 func (*UserResponse) ProtoMessage() {}
 
 func (x *UserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_user_message_proto_msgTypes[1]
+	mi := &file_user_message_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -115,7 +199,7 @@ func (x *UserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserResponse.ProtoReflect.Descriptor instead.
 func (*UserResponse) Descriptor() ([]byte, []int) {
-	return file_user_message_proto_rawDescGZIP(), []int{1}
+	return file_user_message_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *UserResponse) GetToken() string {
@@ -133,12 +217,21 @@ const file_user_message_proto_rawDesc = "" +
 	"\vUserRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x03 \x01(\tR\bpassword\"$\n" +
+	"\bpassword\x18\x03 \x01(\tR\bpassword\"\xb2\x01\n" +
+	"\x11UpdateUserRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\x12!\n" +
+	"\fold_password\x18\x04 \x01(\tR\voldPassword\x12!\n" +
+	"\fnew_password\x18\x05 \x01(\tR\vnewPassword\x12\x14\n" +
+	"\x05token\x18\x06 \x01(\tR\x05token\"$\n" +
 	"\fUserResponse\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token2b\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token2\xbb\x01\n" +
 	"\vUserService\x12S\n" +
 	"\n" +
-	"CreateUser\x12 .education.code.luis.UserRequest\x1a!.education.code.luis.UserResponse\"\x00B(Z&luisfp/plataforma-desafio/framework/pbb\x06proto3"
+	"CreateUser\x12 .education.code.luis.UserRequest\x1a!.education.code.luis.UserResponse\"\x00\x12W\n" +
+	"\n" +
+	"UpdateUser\x12&.education.code.luis.UpdateUserRequest\x1a!.education.code.luis.UserResponseB(Z&luisfp/plataforma-desafio/framework/pbb\x06proto3"
 
 var (
 	file_user_message_proto_rawDescOnce sync.Once
@@ -152,16 +245,19 @@ func file_user_message_proto_rawDescGZIP() []byte {
 	return file_user_message_proto_rawDescData
 }
 
-var file_user_message_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_user_message_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_user_message_proto_goTypes = []any{
-	(*UserRequest)(nil),  // 0: education.code.luis.UserRequest
-	(*UserResponse)(nil), // 1: education.code.luis.UserResponse
+	(*UserRequest)(nil),       // 0: education.code.luis.UserRequest
+	(*UpdateUserRequest)(nil), // 1: education.code.luis.UpdateUserRequest
+	(*UserResponse)(nil),      // 2: education.code.luis.UserResponse
 }
 var file_user_message_proto_depIdxs = []int32{
 	0, // 0: education.code.luis.UserService.CreateUser:input_type -> education.code.luis.UserRequest
-	1, // 1: education.code.luis.UserService.CreateUser:output_type -> education.code.luis.UserResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	1, // 1: education.code.luis.UserService.UpdateUser:input_type -> education.code.luis.UpdateUserRequest
+	2, // 2: education.code.luis.UserService.CreateUser:output_type -> education.code.luis.UserResponse
+	2, // 3: education.code.luis.UserService.UpdateUser:output_type -> education.code.luis.UserResponse
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -178,7 +274,7 @@ func file_user_message_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_user_message_proto_rawDesc), len(file_user_message_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
