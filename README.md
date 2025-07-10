@@ -78,3 +78,10 @@ call UpdateUser
 - Senhas criptografadas com bcrypt
 - Validação de tokens
 - Sanitização de dados de entrada
+
+## ⚠️ Observações Importantes
+
+- **Porta do Servidor**: O Go e o Evans devem rodar na **mesma porta** (padrão: 50051)
+- **Alteração de Porta**: Se quiser alterar a porta, lembre-se de:
+  - Modificar o comando: `go run framework/cmd/server/server.go -port NOVA_PORTA`
+  - Atualizar a porta do Evans no **Makefile**
