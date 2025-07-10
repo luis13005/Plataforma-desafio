@@ -55,6 +55,8 @@ docker-compose up
 
 **Usando Evans (Cliente gRPC):**
 ```bash
+make gen
+
 make evans
 # Cadastrar usuário
 call CreateUser
